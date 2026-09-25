@@ -1,0 +1,8 @@
+FROM nginx:alpine
+
+LABEL maintainer="devops-team"
+LABEL description="DevOps infrastructure demo"
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
