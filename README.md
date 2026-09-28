@@ -1,17 +1,20 @@
 
-## Kubernetes
+# Infrastructure Project
 
-The project includes Kubernetes manifests for deploying the Nginx application.
+This project contains basic DevOps infrastructure configuration for an Nginx application.
 
-- kubernetes/deployment.yaml � creates 2 Nginx replicas.
-- kubernetes/service.yaml � exposes the Nginx deployment through a ClusterIP service.
+## Project Structure
 
-Apply the manifests with:
+- `terraform/` — Terraform infrastructure configuration
+- `ansible/` — Ansible configuration
+- `docker/` — Docker configuration
+- `kubernetes/` — Kubernetes manifests
+- `monitoring/` — Prometheus configuration
+- `.github/workflows/` — GitHub Actions CI
 
-kubectl apply -f kubernetes/deployment.yaml
-kubectl apply -f kubernetes/service.yaml
-## Conflict Test
-Version B
+## Docker
 
-Version A
+Build the Docker image:
 
+```bash
+docker build -t nginx-app -f docker/Dockerfile .
