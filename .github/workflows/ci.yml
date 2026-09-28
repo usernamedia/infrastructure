@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate repository structure
+        run: |
+          test -f docker/Dockerfile
+          test -f terraform/main.tf
+          test -f ansible/playbook.yml
+          test -f kubernetes/deployment.yaml
+          test -f kubernetes/service.yaml
+          test -f monitoring/prometheus.yml
